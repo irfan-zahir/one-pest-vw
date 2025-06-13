@@ -13,50 +13,22 @@ import {
   Rat,
   BugIcon as Cockroach,
   AntennaIcon as Ant,
+  ArrowRight,
 } from "lucide-react"
+import Header from "@/components/header"
+import Footer from "@/components/footer"
 
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
-      <header className="sticky top-0 z-40 w-full border-b bg-background">
-        <div className="container flex h-16 items-center justify-between py-4">
-          <div className="flex items-center gap-2">
-            <Bug className="h-6 w-6 text-green-600" />
-            <span className="text-xl font-bold">PestAway</span>
-          </div>
-          <nav className="hidden md:flex items-center gap-6 text-sm">
-            <Link href="#" className="font-medium transition-colors hover:text-green-600">
-              Laman Utama
-            </Link>
-            <Link href="#" className="font-medium transition-colors hover:text-green-600">
-              Perkhidmatan
-            </Link>
-            <Link href="#" className="font-medium transition-colors hover:text-green-600">
-              Maklumat Perosak
-            </Link>
-            <Link href="#" className="font-medium transition-colors hover:text-green-600">
-              Tentang Kami
-            </Link>
-            <Link href="#" className="font-medium transition-colors hover:text-green-600">
-              Kawasan Perkhidmatan
-            </Link>
-          </nav>
-          <div className="flex items-center gap-4">
-            <Link href="#hubungi" className="hidden md:flex items-center gap-2 text-green-600 font-medium">
-              <Phone className="h-4 w-4" />
-              <span>03-1234 5678</span>
-            </Link>
-            <Button className="bg-green-600 hover:bg-green-700">Hubungi Kami</Button>
-          </div>
-        </div>
-      </header>
+      <Header />
 
       <main className="flex-1">
         {/* Hero Section */}
         <section className="relative bg-green-50 py-20 md:py-32">
           <div className="container flex flex-col md:flex-row items-center gap-8">
             <div className="flex-1 space-y-6">
-              <Badge className="bg-green-100 text-green-800 hover:bg-green-200">Perkhidmatan Kecemasan 24/7</Badge>
+              <Badge className="bg-red-100 text-red-800 hover:bg-red-200">Perkhidmatan Kecemasan 24/7</Badge>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
                 Penyelesaian Kawalan Perosak Profesional
               </h1>
@@ -65,10 +37,11 @@ export default function Home() {
                 dan mesra alam.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="bg-green-600 hover:bg-green-700">
-                  Perkhidmatan Kecemasan
+                <Button size="lg" className="bg-red-600 hover:bg-red-700">
+                  <Phone className="h-5 w-5 mr-2" />
+                  Panggilan Kecemasan
                 </Button>
-                <Button size="lg" variant="outline">
+                <Button size="lg" variant="outline" className="border-green-600 text-green-600 hover:bg-green-50">
                   Dapatkan Sebut Harga Percuma
                 </Button>
               </div>
@@ -120,7 +93,7 @@ export default function Home() {
                   </p>
                 </CardContent>
                 <CardFooter>
-                  <Link href="#" className="text-green-600 text-sm hover:underline">
+                  <Link href="/maklumat-perosak" className="text-green-600 text-sm hover:underline">
                     Ketahui lebih lanjut
                   </Link>
                 </CardFooter>
@@ -139,7 +112,7 @@ export default function Home() {
                   </p>
                 </CardContent>
                 <CardFooter>
-                  <Link href="#" className="text-green-600 text-sm hover:underline">
+                  <Link href="/maklumat-perosak" className="text-green-600 text-sm hover:underline">
                     Ketahui lebih lanjut
                   </Link>
                 </CardFooter>
@@ -158,7 +131,7 @@ export default function Home() {
                   </p>
                 </CardContent>
                 <CardFooter>
-                  <Link href="#" className="text-green-600 text-sm hover:underline">
+                  <Link href="/perkhidmatan/anai-anai" className="text-green-600 text-sm hover:underline">
                     Ketahui lebih lanjut
                   </Link>
                 </CardFooter>
@@ -177,7 +150,7 @@ export default function Home() {
                   </p>
                 </CardContent>
                 <CardFooter>
-                  <Link href="#" className="text-green-600 text-sm hover:underline">
+                  <Link href="/perkhidmatan/tikus" className="text-green-600 text-sm hover:underline">
                     Ketahui lebih lanjut
                   </Link>
                 </CardFooter>
@@ -241,23 +214,12 @@ export default function Home() {
                       <CheckCircle className="h-5 w-5 text-green-600" />
                       <span>Subang Jaya</span>
                     </li>
-                    <li className="flex items-center gap-2">
-                      <CheckCircle className="h-5 w-5 text-green-600" />
-                      <span>Klang</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <CheckCircle className="h-5 w-5 text-green-600" />
-                      <span>Ampang</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <CheckCircle className="h-5 w-5 text-green-600" />
-                      <span>Cheras</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <CheckCircle className="h-5 w-5 text-green-600" />
-                      <span>Puchong</span>
-                    </li>
                   </ul>
+                  <div className="mt-4">
+                    <Link href="/kawasan-harga" className="text-green-600 hover:underline flex items-center gap-1">
+                      Lihat semua kawasan <ArrowRight className="h-4 w-4" />
+                    </Link>
+                  </div>
                 </div>
               </div>
 
@@ -361,17 +323,17 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Testimonials */}
+        {/* Customer Testimonials with Before/After */}
         <section className="py-16 bg-green-50" id="testimoni">
           <div className="container space-y-12">
             <div className="text-center space-y-4">
-              <h2 className="text-3xl font-bold">Testimoni Pelanggan</h2>
+              <h2 className="text-3xl font-bold">Testimoni Pelanggan & Hasil Kerja</h2>
               <p className="text-muted-foreground max-w-2xl mx-auto">
-                Lihat apa yang pelanggan kami katakan tentang perkhidmatan kawalan perosak kami.
+                Lihat apa yang pelanggan kami katakan dan hasil kerja kami yang berkesan.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               <Card>
                 <CardHeader>
                   <div className="flex items-center gap-4">
@@ -391,9 +353,31 @@ export default function Home() {
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground">
+                  <div className="grid grid-cols-2 gap-2 mb-4">
+                    <div className="text-center">
+                      <Image
+                        src="/placeholder.svg?height=80&width=120"
+                        alt="Sebelum"
+                        width={120}
+                        height={80}
+                        className="rounded border"
+                      />
+                      <p className="text-xs text-red-600 mt-1">Sebelum</p>
+                    </div>
+                    <div className="text-center">
+                      <Image
+                        src="/placeholder.svg?height=80&width=120"
+                        alt="Selepas"
+                        width={120}
+                        height={80}
+                        className="rounded border"
+                      />
+                      <p className="text-xs text-green-600 mt-1">Selepas</p>
+                    </div>
+                  </div>
+                  <p className="text-muted-foreground text-sm">
                     "Perkhidmatan yang sangat profesional. Mereka tiba dalam masa 2 jam selepas panggilan kecemasan saya
-                    tentang serangan lipas. Masalah diselesaikan dengan cepat dan tiada lipas sejak itu!"
+                    tentang serangan lipas. Masalah diselesaikan dengan cepat!"
                   </p>
                 </CardContent>
                 <CardFooter className="flex justify-between">
@@ -438,9 +422,31 @@ export default function Home() {
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground">
+                  <div className="grid grid-cols-2 gap-2 mb-4">
+                    <div className="text-center">
+                      <Image
+                        src="/placeholder.svg?height=80&width=120"
+                        alt="Sebelum"
+                        width={120}
+                        height={80}
+                        className="rounded border"
+                      />
+                      <p className="text-xs text-red-600 mt-1">Sebelum</p>
+                    </div>
+                    <div className="text-center">
+                      <Image
+                        src="/placeholder.svg?height=80&width=120"
+                        alt="Selepas"
+                        width={120}
+                        height={80}
+                        className="rounded border"
+                      />
+                      <p className="text-xs text-green-600 mt-1">Selepas</p>
+                    </div>
+                  </div>
+                  <p className="text-muted-foreground text-sm">
                     "Saya sangat berpuas hati dengan perkhidmatan mereka. Juruteknik yang datang sangat berpengetahuan
-                    dan menjelaskan semua langkah yang diambil untuk mengatasi masalah anai-anai di rumah saya."
+                    dan menjelaskan semua langkah untuk mengatasi masalah anai-anai."
                   </p>
                 </CardContent>
                 <CardFooter className="flex justify-between">
@@ -485,9 +491,31 @@ export default function Home() {
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground">
+                  <div className="grid grid-cols-2 gap-2 mb-4">
+                    <div className="text-center">
+                      <Image
+                        src="/placeholder.svg?height=80&width=120"
+                        alt="Sebelum"
+                        width={120}
+                        height={80}
+                        className="rounded border"
+                      />
+                      <p className="text-xs text-red-600 mt-1">Sebelum</p>
+                    </div>
+                    <div className="text-center">
+                      <Image
+                        src="/placeholder.svg?height=80&width=120"
+                        alt="Selepas"
+                        width={120}
+                        height={80}
+                        className="rounded border"
+                      />
+                      <p className="text-xs text-green-600 mt-1">Selepas</p>
+                    </div>
+                  </div>
+                  <p className="text-muted-foreground text-sm">
                     "Sebagai pemilik restoran, kawalan perosak adalah sangat penting. PestAway telah menyediakan
-                    perkhidmatan yang konsisten dan berkesan untuk perniagaan saya selama 3 tahun. Sangat disyorkan!"
+                    perkhidmatan yang konsisten dan berkesan selama 3 tahun."
                   </p>
                 </CardContent>
                 <CardFooter className="flex justify-between">
@@ -516,649 +544,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Services */}
-        <section className="py-16 bg-white" id="perkhidmatan">
-          <div className="container space-y-12">
-            <div className="text-center space-y-4">
-              <h2 className="text-3xl font-bold">Perkhidmatan Kami</h2>
-              <p className="text-muted-foreground max-w-2xl mx-auto">
-                Kami menawarkan pelbagai perkhidmatan kawalan perosak untuk keperluan kediaman dan komersial.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              <Card>
-                <CardHeader>
-                  <CardTitle>Kawalan Perosak Kediaman</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">
-                    Perkhidmatan kawalan perosak komprehensif untuk rumah anda, melindungi keluarga anda daripada
-                    perosak berbahaya.
-                  </p>
-                  <ul className="mt-4 space-y-2">
-                    <li className="flex items-center gap-2">
-                      <CheckCircle className="h-4 w-4 text-green-600" />
-                      <span className="text-sm">Pemeriksaan menyeluruh</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <CheckCircle className="h-4 w-4 text-green-600" />
-                      <span className="text-sm">Rawatan berkesan</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <CheckCircle className="h-4 w-4 text-green-600" />
-                      <span className="text-sm">Pencegahan jangka panjang</span>
-                    </li>
-                  </ul>
-                </CardContent>
-                <CardFooter>
-                  <Button className="w-full bg-green-600 hover:bg-green-700">Ketahui Lebih Lanjut</Button>
-                </CardFooter>
-              </Card>
-
-              <Card>
-                <CardHeader>
-                  <CardTitle>Pengurusan Perosak Komersial</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">
-                    Penyelesaian kawalan perosak untuk perniagaan, restoran, hotel, dan bangunan komersial.
-                  </p>
-                  <ul className="mt-4 space-y-2">
-                    <li className="flex items-center gap-2">
-                      <CheckCircle className="h-4 w-4 text-green-600" />
-                      <span className="text-sm">Mematuhi peraturan kesihatan</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <CheckCircle className="h-4 w-4 text-green-600" />
-                      <span className="text-sm">Perkhidmatan diskresi</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <CheckCircle className="h-4 w-4 text-green-600" />
-                      <span className="text-sm">Pelan penyelenggaraan berkala</span>
-                    </li>
-                  </ul>
-                </CardContent>
-                <CardFooter>
-                  <Button className="w-full bg-green-600 hover:bg-green-700">Ketahui Lebih Lanjut</Button>
-                </CardFooter>
-              </Card>
-
-              <Card>
-                <CardHeader>
-                  <CardTitle>Pemeriksaan & Rawatan Anai-anai</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">
-                    Pemeriksaan dan rawatan anai-anai yang menyeluruh untuk melindungi struktur bangunan anda.
-                  </p>
-                  <ul className="mt-4 space-y-2">
-                    <li className="flex items-center gap-2">
-                      <CheckCircle className="h-4 w-4 text-green-600" />
-                      <span className="text-sm">Pemeriksaan terperinci</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <CheckCircle className="h-4 w-4 text-green-600" />
-                      <span className="text-sm">Rawatan penghalang</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <CheckCircle className="h-4 w-4 text-green-600" />
-                      <span className="text-sm">Jaminan 5 tahun</span>
-                    </li>
-                  </ul>
-                </CardContent>
-                <CardFooter>
-                  <Button className="w-full bg-green-600 hover:bg-green-700">Ketahui Lebih Lanjut</Button>
-                </CardFooter>
-              </Card>
-
-              <Card>
-                <CardHeader>
-                  <CardTitle>Kawalan & Pengecualian Tikus</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">
-                    Penyelesaian komprehensif untuk menghapuskan dan mencegah serangan tikus di premis anda.
-                  </p>
-                  <ul className="mt-4 space-y-2">
-                    <li className="flex items-center gap-2">
-                      <CheckCircle className="h-4 w-4 text-green-600" />
-                      <span className="text-sm">Pengesanan titik masuk</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <CheckCircle className="h-4 w-4 text-green-600" />
-                      <span className="text-sm">Perangkap dan umpan selamat</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <CheckCircle className="h-4 w-4 text-green-600" />
-                      <span className="text-sm">Langkah pencegahan</span>
-                    </li>
-                  </ul>
-                </CardContent>
-                <CardFooter>
-                  <Button className="w-full bg-green-600 hover:bg-green-700">Ketahui Lebih Lanjut</Button>
-                </CardFooter>
-              </Card>
-
-              <Card>
-                <CardHeader>
-                  <CardTitle>Rawatan Pepijat</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">
-                    Rawatan khusus untuk menghapuskan pepijat sepenuhnya dari kediaman atau hotel anda.
-                  </p>
-                  <ul className="mt-4 space-y-2">
-                    <li className="flex items-center gap-2">
-                      <CheckCircle className="h-4 w-4 text-green-600" />
-                      <span className="text-sm">Pemeriksaan menyeluruh</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <CheckCircle className="h-4 w-4 text-green-600" />
-                      <span className="text-sm">Rawatan haba</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <CheckCircle className="h-4 w-4 text-green-600" />
-                      <span className="text-sm">Rawatan susulan</span>
-                    </li>
-                  </ul>
-                </CardContent>
-                <CardFooter>
-                  <Button className="w-full bg-green-600 hover:bg-green-700">Ketahui Lebih Lanjut</Button>
-                </CardFooter>
-              </Card>
-
-              <Card>
-                <CardHeader>
-                  <CardTitle>Pelan Penyelenggaraan Pencegahan</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">
-                    Pelan penyelenggaraan berkala untuk mencegah serangan perosak dan memastikan premis anda bebas
-                    perosak.
-                  </p>
-                  <ul className="mt-4 space-y-2">
-                    <li className="flex items-center gap-2">
-                      <CheckCircle className="h-4 w-4 text-green-600" />
-                      <span className="text-sm">Pemeriksaan berkala</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <CheckCircle className="h-4 w-4 text-green-600" />
-                      <span className="text-sm">Rawatan pencegahan</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <CheckCircle className="h-4 w-4 text-green-600" />
-                      <span className="text-sm">Laporan terperinci</span>
-                    </li>
-                  </ul>
-                </CardContent>
-                <CardFooter>
-                  <Button className="w-full bg-green-600 hover:bg-green-700">Ketahui Lebih Lanjut</Button>
-                </CardFooter>
-              </Card>
-            </div>
-          </div>
-        </section>
-
-        {/* Pest Information Hub */}
-        <section className="py-16 bg-green-50" id="maklumat-perosak">
-          <div className="container space-y-12">
-            <div className="text-center space-y-4">
-              <h2 className="text-3xl font-bold">Pusat Maklumat Perosak</h2>
-              <p className="text-muted-foreground max-w-2xl mx-auto">
-                Ketahui lebih lanjut tentang perosak biasa, tanda-tanda serangan, dan cara mencegahnya.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              <Card>
-                <Image
-                  src="/placeholder.svg?height=200&width=400"
-                  alt="Panduan Pengenalan Perosak"
-                  width={400}
-                  height={200}
-                  className="w-full h-48 object-cover"
-                />
-                <CardHeader>
-                  <CardTitle>Panduan Pengenalan Perosak</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">
-                    Panduan lengkap untuk mengenal pasti pelbagai jenis perosak yang biasa ditemui di Malaysia.
-                  </p>
-                </CardContent>
-                <CardFooter>
-                  <Link href="#" className="text-green-600 hover:underline">
-                    Baca Selanjutnya
-                  </Link>
-                </CardFooter>
-              </Card>
-
-              <Card>
-                <Image
-                  src="/placeholder.svg?height=200&width=400"
-                  alt="Tanda-tanda Serangan"
-                  width={400}
-                  height={200}
-                  className="w-full h-48 object-cover"
-                />
-                <CardHeader>
-                  <CardTitle>Tanda-tanda Serangan</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">
-                    Ketahui tanda-tanda awal serangan perosak untuk mengambil tindakan segera sebelum masalah menjadi
-                    lebih serius.
-                  </p>
-                </CardContent>
-                <CardFooter>
-                  <Link href="#" className="text-green-600 hover:underline">
-                    Baca Selanjutnya
-                  </Link>
-                </CardFooter>
-              </Card>
-
-              <Card>
-                <Image
-                  src="/placeholder.svg?height=200&width=400"
-                  alt="Tip Pencegahan Mengikut Musim"
-                  width={400}
-                  height={200}
-                  className="w-full h-48 object-cover"
-                />
-                <CardHeader>
-                  <CardTitle>Tip Pencegahan Mengikut Musim</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">
-                    Tip berguna untuk mencegah serangan perosak berdasarkan musim di Malaysia, termasuk musim hujan dan
-                    kemarau.
-                  </p>
-                </CardContent>
-                <CardFooter>
-                  <Link href="#" className="text-green-600 hover:underline">
-                    Baca Selanjutnya
-                  </Link>
-                </CardFooter>
-              </Card>
-            </div>
-
-            <div className="text-center">
-              <Button variant="outline" className="border-green-600 text-green-600 hover:bg-green-50">
-                Lihat Semua Artikel
-              </Button>
-            </div>
-          </div>
-        </section>
-
-        {/* About Us */}
-        <section className="py-16 bg-white" id="tentang-kami">
-          <div className="container space-y-12">
-            <div className="text-center space-y-4">
-              <h2 className="text-3xl font-bold">Tentang Kami</h2>
-              <p className="text-muted-foreground max-w-2xl mx-auto">
-                Penyedia perkhidmatan kawalan perosak profesional dengan pengalaman lebih 15 tahun di Malaysia.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-              <div>
-                <Image
-                  src="/placeholder.svg?height=400&width=600"
-                  alt="Pasukan PestAway"
-                  width={600}
-                  height={400}
-                  className="rounded-lg shadow-lg"
-                />
-              </div>
-
-              <div className="space-y-6">
-                <div>
-                  <h3 className="text-xl font-bold mb-2">Juruteknik Berlesen</h3>
-                  <p className="text-muted-foreground">
-                    Semua juruteknik kami berlesen dan disahkan oleh Jabatan Pertanian Malaysia dengan latihan
-                    profesional dalam kawalan perosak.
-                  </p>
-                </div>
-
-                <div>
-                  <h3 className="text-xl font-bold mb-2">Pengalaman di Kawasan Tempatan</h3>
-                  <p className="text-muted-foreground">
-                    Dengan pengalaman lebih 15 tahun di Lembah Klang, kami memahami cabaran kawalan perosak tempatan dan
-                    cara terbaik untuk mengatasinya.
-                  </p>
-                </div>
-
-                <div>
-                  <h3 className="text-xl font-bold mb-2">Protokol Keselamatan</h3>
-                  <p className="text-muted-foreground">
-                    Kami mengutamakan keselamatan anda dengan protokol ketat dan pendekatan kawalan perosak yang mesra
-                    alam.
-                  </p>
-                </div>
-
-                <div>
-                  <h3 className="text-xl font-bold mb-2">Insurans & Jaminan</h3>
-                  <p className="text-muted-foreground">
-                    Perkhidmatan kami dilindungi insurans sepenuhnya dan datang dengan jaminan kepuasan untuk ketenangan
-                    fikiran anda.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Service Areas & Pricing */}
-        <section className="py-16 bg-green-50" id="harga">
-          <div className="container space-y-12">
-            <div className="text-center space-y-4">
-              <h2 className="text-3xl font-bold">Kawasan Perkhidmatan & Harga</h2>
-              <p className="text-muted-foreground max-w-2xl mx-auto">
-                Kami menawarkan pelbagai pakej perkhidmatan untuk memenuhi keperluan dan bajet anda.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <Card className="border-green-100">
-                <CardHeader className="text-center">
-                  <CardTitle className="text-xl">Perkhidmatan Sekali</CardTitle>
-                  <div className="mt-4 text-4xl font-bold">RM 180</div>
-                  <CardDescription className="mt-2">Bermula dari</CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <ul className="space-y-2">
-                    <li className="flex items-center gap-2">
-                      <CheckCircle className="h-5 w-5 text-green-600" />
-                      <span>Pemeriksaan menyeluruh</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <CheckCircle className="h-5 w-5 text-green-600" />
-                      <span>Rawatan segera</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <CheckCircle className="h-5 w-5 text-green-600" />
-                      <span>Laporan perosak</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <CheckCircle className="h-5 w-5 text-green-600" />
-                      <span>Jaminan 30 hari</span>
-                    </li>
-                  </ul>
-                </CardContent>
-                <CardFooter>
-                  <Button className="w-full bg-green-600 hover:bg-green-700">Tempah Sekarang</Button>
-                </CardFooter>
-              </Card>
-
-              <Card className="border-green-600 shadow-lg">
-                <div className="bg-green-600 text-white text-center py-2 text-sm font-medium">PALING POPULAR</div>
-                <CardHeader className="text-center">
-                  <CardTitle className="text-xl">Pakej Bulanan</CardTitle>
-                  <div className="mt-4 text-4xl font-bold">RM 120</div>
-                  <CardDescription className="mt-2">Sebulan</CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <ul className="space-y-2">
-                    <li className="flex items-center gap-2">
-                      <CheckCircle className="h-5 w-5 text-green-600" />
-                      <span>Lawatan bulanan</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <CheckCircle className="h-5 w-5 text-green-600" />
-                      <span>Rawatan pencegahan</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <CheckCircle className="h-5 w-5 text-green-600" />
-                      <span>Laporan bulanan</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <CheckCircle className="h-5 w-5 text-green-600" />
-                      <span>Lawatan kecemasan percuma</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <CheckCircle className="h-5 w-5 text-green-600" />
-                      <span>Jaminan berterusan</span>
-                    </li>
-                  </ul>
-                </CardContent>
-                <CardFooter>
-                  <Button className="w-full bg-green-600 hover:bg-green-700">Tempah Sekarang</Button>
-                </CardFooter>
-              </Card>
-
-              <Card className="border-green-100">
-                <CardHeader className="text-center">
-                  <CardTitle className="text-xl">Pakej Suku Tahunan</CardTitle>
-                  <div className="mt-4 text-4xl font-bold">RM 100</div>
-                  <CardDescription className="mt-2">Sebulan</CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <ul className="space-y-2">
-                    <li className="flex items-center gap-2">
-                      <CheckCircle className="h-5 w-5 text-green-600" />
-                      <span>Lawatan setiap 3 bulan</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <CheckCircle className="h-5 w-5 text-green-600" />
-                      <span>Rawatan pencegahan</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <CheckCircle className="h-5 w-5 text-green-600" />
-                      <span>Laporan terperinci</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <CheckCircle className="h-5 w-5 text-green-600" />
-                      <span>Diskaun 20% untuk lawatan tambahan</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <CheckCircle className="h-5 w-5 text-green-600" />
-                      <span>Jaminan berterusan</span>
-                    </li>
-                  </ul>
-                </CardContent>
-                <CardFooter>
-                  <Button className="w-full bg-green-600 hover:bg-green-700">Tempah Sekarang</Button>
-                </CardFooter>
-              </Card>
-            </div>
-
-            <div className="bg-white p-6 rounded-lg shadow-sm">
-              <h3 className="text-xl font-bold mb-4">Tawaran Khas</h3>
-              <div className="flex flex-col md:flex-row gap-6 items-center">
-                <div className="flex-1">
-                  <p className="text-muted-foreground mb-4">
-                    Dapatkan pemeriksaan percuma untuk rumah atau perniagaan anda. Tiada kewajipan, tiada kos
-                    tersembunyi.
-                  </p>
-                  <Button className="bg-green-600 hover:bg-green-700">Tempah Pemeriksaan Percuma</Button>
-                </div>
-                <div className="flex-1">
-                  <p className="text-muted-foreground mb-4">
-                    Kadar kecemasan 24/7 tersedia untuk situasi mendesak. Hubungi kami pada bila-bila masa untuk bantuan
-                    segera.
-                  </p>
-                  <Button variant="outline" className="border-green-600 text-green-600 hover:bg-green-50">
-                    Hubungi Talian Kecemasan
-                  </Button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Contact Form */}
-        <section className="py-16 bg-white" id="hubungi">
-          <div className="container space-y-12">
-            <div className="text-center space-y-4">
-              <h2 className="text-3xl font-bold">Hubungi Kami</h2>
-              <p className="text-muted-foreground max-w-2xl mx-auto">
-                Hubungi kami untuk mendapatkan sebut harga percuma atau untuk menjadualkan perkhidmatan kawalan perosak.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-              <div className="space-y-6">
-                <div className="flex items-start gap-4">
-                  <div className="bg-green-100 p-3 rounded-full">
-                    <Phone className="h-6 w-6 text-green-600" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-bold">Telefon</h3>
-                    <p className="text-muted-foreground">03-1234 5678</p>
-                    <p className="text-muted-foreground">019-876 5432 (Kecemasan)</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="bg-green-100 p-3 rounded-full">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="h-6 w-6 text-green-600"
-                    >
-                      <rect width="20" height="16" x="2" y="4" rx="2" />
-                      <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-bold">E-mel</h3>
-                    <p className="text-muted-foreground">info@pestaway.com.my</p>
-                    <p className="text-muted-foreground">kecemasan@pestaway.com.my</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="bg-green-100 p-3 rounded-full">
-                    <MapPin className="h-6 w-6 text-green-600" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-bold">Alamat</h3>
-                    <p className="text-muted-foreground">
-                      123, Jalan Bunga Raya,
-                      <br />
-                      Taman Setia Jaya,
-                      <br />
-                      47300 Petaling Jaya,
-                      <br />
-                      Selangor, Malaysia
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="bg-green-100 p-3 rounded-full">
-                    <Clock className="h-6 w-6 text-green-600" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-bold">Waktu Operasi</h3>
-                    <p className="text-muted-foreground">
-                      Isnin - Jumaat: 8:00 pagi - 6:00 petang
-                      <br />
-                      Sabtu: 9:00 pagi - 3:00 petang
-                      <br />
-                      Ahad: Tutup
-                      <br />
-                      Perkhidmatan Kecemasan: 24/7
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-green-50 p-6 rounded-lg">
-                <form className="space-y-4">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div className="space-y-2">
-                      <label htmlFor="name" className="text-sm font-medium">
-                        Nama
-                      </label>
-                      <input
-                        id="name"
-                        type="text"
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md"
-                        placeholder="Nama penuh anda"
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <label htmlFor="email" className="text-sm font-medium">
-                        E-mel
-                      </label>
-                      <input
-                        id="email"
-                        type="email"
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md"
-                        placeholder="E-mel anda"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div className="space-y-2">
-                      <label htmlFor="phone" className="text-sm font-medium">
-                        Telefon
-                      </label>
-                      <input
-                        id="phone"
-                        type="tel"
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md"
-                        placeholder="Nombor telefon anda"
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <label htmlFor="service" className="text-sm font-medium">
-                        Perkhidmatan
-                      </label>
-                      <select id="service" className="w-full px-3 py-2 border border-gray-300 rounded-md">
-                        <option value="">Pilih perkhidmatan</option>
-                        <option value="residential">Kawalan Perosak Kediaman</option>
-                        <option value="commercial">Pengurusan Perosak Komersial</option>
-                        <option value="termite">Pemeriksaan & Rawatan Anai-anai</option>
-                        <option value="rodent">Kawalan & Pengecualian Tikus</option>
-                        <option value="bedbug">Rawatan Pepijat</option>
-                        <option value="maintenance">Pelan Penyelenggaraan</option>
-                      </select>
-                    </div>
-                  </div>
-
-                  <div className="space-y-2">
-                    <label htmlFor="address" className="text-sm font-medium">
-                      Alamat
-                    </label>
-                    <input
-                      id="address"
-                      type="text"
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md"
-                      placeholder="Alamat lengkap anda"
-                    />
-                  </div>
-
-                  <div className="space-y-2">
-                    <label htmlFor="message" className="text-sm font-medium">
-                      Mesej
-                    </label>
-                    <textarea
-                      id="message"
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md h-32"
-                      placeholder="Sila berikan maklumat tentang masalah perosak anda"
-                    ></textarea>
-                  </div>
-
-                  <Button type="submit" className="w-full bg-green-600 hover:bg-green-700">
-                    Hantar Pertanyaan
-                  </Button>
-                </form>
-              </div>
-            </div>
-          </div>
-        </section>
-
         {/* CTA Section */}
         <section className="py-16 bg-green-600 text-white">
           <div className="container text-center space-y-6">
@@ -1169,169 +554,18 @@ export default function Home() {
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <Button size="lg" className="bg-white text-green-600 hover:bg-green-50">
+                <Phone className="h-5 w-5 mr-2" />
                 Hubungi Kami Sekarang
               </Button>
               <Button size="lg" variant="outline" className="border-white text-white hover:bg-green-700">
-                Dapatkan Sebut Harga Percuma
+                Lihat Semua Perkhidmatan
               </Button>
             </div>
           </div>
         </section>
       </main>
 
-      <footer className="bg-gray-900 text-gray-300">
-        <div className="container py-12">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="space-y-4">
-              <div className="flex items-center gap-2">
-                <Bug className="h-6 w-6 text-green-500" />
-                <span className="text-xl font-bold text-white">PestAway</span>
-              </div>
-              <p className="text-sm">
-                Penyedia perkhidmatan kawalan perosak profesional dengan pengalaman lebih 15 tahun di Malaysia.
-              </p>
-              <div className="flex gap-4">
-                <Link href="#" className="hover:text-green-500">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
-                  </svg>
-                </Link>
-                <Link href="#" className="hover:text-green-500">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
-                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-                    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
-                  </svg>
-                </Link>
-                <Link href="#" className="hover:text-green-500">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" />
-                  </svg>
-                </Link>
-              </div>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-bold mb-4 text-white">Perkhidmatan</h3>
-              <ul className="space-y-2">
-                <li>
-                  <Link href="#" className="text-sm hover:text-green-500">
-                    Kawalan Perosak Kediaman
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="text-sm hover:text-green-500">
-                    Pengurusan Perosak Komersial
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="text-sm hover:text-green-500">
-                    Pemeriksaan & Rawatan Anai-anai
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="text-sm hover:text-green-500">
-                    Kawalan & Pengecualian Tikus
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="text-sm hover:text-green-500">
-                    Rawatan Pepijat
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="text-sm hover:text-green-500">
-                    Pelan Penyelenggaraan
-                  </Link>
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-bold mb-4 text-white">Pautan Berguna</h3>
-              <ul className="space-y-2">
-                <li>
-                  <Link href="#" className="text-sm hover:text-green-500">
-                    Tentang Kami
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="text-sm hover:text-green-500">
-                    Kawasan Perkhidmatan
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="text-sm hover:text-green-500">
-                    Harga
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="text-sm hover:text-green-500">
-                    Testimoni
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="text-sm hover:text-green-500">
-                    Hubungi Kami
-                  </Link>
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-bold mb-4 text-white">Hubungi Kami</h3>
-              <p className="text-sm">
-                123, Jalan Bunga Raya,
-                <br />
-                Taman Setia Jaya,
-                <br />
-                47300 Petaling Jaya,
-                <br />
-                Selangor, Malaysia
-              </p>
-              <p className="text-sm">
-                Telefon: 03-1234 5678
-                <br />
-                E-mel: info@pestaway.com.my
-              </p>
-            </div>
-          </div>
-
-          <div className="border-t border-gray-800 py-6 text-center text-sm">
-            &copy; 2023 PestAway. Hak Cipta Terpelihara.
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   )
 }
