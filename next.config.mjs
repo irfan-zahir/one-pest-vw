@@ -6,9 +6,16 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
+  // images: {
+  //   unoptimized: true,
+  // },
+  output: 'export',
+  trailingSlash: true,
   images: {
-    unoptimized: true,
+    unoptimized: true
   },
+  assetPrefix: '/one-pest-vw',
+  basePath: '/one-pest-vw'
 }
 
 export default nextConfig
